@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINAL!!!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+    <!-- <link href='./assets/img/favicon.png' rel='icon' type='image/x-icon' /> -->
+    <!-- Hinh cho trang web -->
+    <link rel="stylesheet" href="./assets/css/toast-message.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <section id="navbar">
+        <ul id="nav-links">
+            <div id="nav-logo">LOGO!!</div>
+            <li><a href="#hero">Trang chủ</a></li>
+            <li><a href="shop.html">Cửa hàng</a></li>
+            <li><a href="#services">Dịch vụ</a></li>
+            <li><a href="#footer">Liên hệ</a></li>
+            <ul id="nav-links-function">
+                <li id="search"><a><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li id="Sign" name="Sign"><a><i class="fa-solid fa-user"></i></a></li>
+                <li id="Cart" name="Cart"><a><i class="fa-solid fa-bag-shopping"></i></i></a></li>
+            </ul>
+        </ul>
+    </section>
+
+    <div id="overlay" class="overlay"></div>
+
+    <div id="SignForm">
+        <div id="SignForm-content">
+            <div id="SignForm-close"><i class="fa-solid fa-xmark"></i></div>
+            <div id="SignForm-title">ĐĂNG NHẬP</div>
+            <p class="RegisterForm-desc">Đăng nhập thành viên để đặt hàng và sử dụng những ưu đãi</p>
+            <div id="SignForm-inputs">
+                <input type="text" id="txtUsername" placeholder="Tên đăng nhập">
+                <input type="password" id="txtPassword" placeholder="Mật khẩu">
+            </div>
+            <div id="SignForm-submit">
+                <div>Đăng nhập</div>
+            </div>
+            <div id="SignForm-APT">Chưa có tài khoản? <a id="SignForm-register">Đăng ký</a></div>
+        </div>
+    </div>
+
+    <div id="RegisterForm">
+        <div id="RegisterForm-content">
+            <div id="RegisterForm-close"><i class="fa-solid fa-xmark"></i></div>
+            <div id="RegisterForm-title">ĐĂNG KÝ</div>
+            <p class="RegisterForm-desc">Đăng ký thành viên để nhận những ưu đãi và thông báo mới nhất</p>
+            <div id="RegisterForm-inputs">
+                <input type="text" id="txtRName" placeholder="Họ tên">
+                <input type="text" id="txtRUsername" placeholder="Tên đăng nhập">
+                <input type="password" id="txtRPassword" placeholder="Mật khẩu">
+                <input type="password" id="txtRPassword2" placeholder="Nhập lại mật khẩu">
+            </div>
+            <div id="RegisterForm-checkbox">
+                <input class="checkbox" name="checkbox" required="" type="checkbox" id="checkbox-signup">
+                <label for="checkbox-signup" class="form-checkbox">Tôi đồng ý với <a href="#" style="text-decoration: none; color: #333; font-weight: 700;">chính sách trang web</a></label>
+            </div>
+            <div id="RegisterForm-submit">
+                <div>Đăng ký</div>
+            </div>
+            <div id="RegisterForm-APT">Đã có tài khoản? <a id="RegisterForm-login">Đăng nhập</a></div>
+        </div>
+    </div>
+
+    <div id="afterSign">
+        <div id="afterSign-content">
+            <div id="afterSign-title">Xin chào, <span id="afterSign-username"></span></div>
+            <div id="afterSign-infor">Thông tin tài khoản</div>
+            <div id="afterSign-orders">Đơn hàng của tôi</div>
+            <div id="afterSign-logout">Đăng xuất</div>
+            <div id="afterSign-close">Thoát</i></div>
+        </div>
+    </div>
+
+    <div id="afterSignAdmin">
+        <div id="afterSign-content">
+            <div id="afterSign-title">Xin chào, <span id="afterSign-admin-username"></span></div>
+            <div id="afterSign-admin-infor">Thông tin tài khoản</div>
+            <a href="admin.html"><div id="afterSign-admin">Quản lý cửa hàng</div></a>
+            <div id="afterSign-admin-orders">Đơn hàng của tôi</div>
+            <div id="afterSign-admin-logout">Đăng xuất</div>
+            <div id="afterSign-admin-close">Thoát</i></div>
+        </div>
+    </div>
+
+    <div id="CartForm">
+            <div id="CartForm-close"><i class="fa-solid fa-xmark"></i></div>
+            <div id="CartForm-title"><div>GIỎ HÀNG</div></div>
+            <div id="CartForm-items">
+                <div id="cartContainer">
+                    <!-- San Pham hien thi trong gio hang -->
+                </div>
+            </div>
+            <div id="CartForm-actions">
+                <button id="CartForm-view">Xem giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="SearchBar">
+            <input type="text" id="txtSearch" placeholder="Tìm kiếm">
+            <div id="SearchBar-submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+    </div>
+
+    <section id="hero">
+        <div id="hero-content">
+            <p id="hero-title">WELCOME TO OUR SHOP</p>
+            <p id="hero-subtitle">Chúng tôi cung cấp những sản phẩm tốt nhất cho bạn</p>
+            <a href="#shop"><button id="hero-button">CHI TIẾT</button></a>
+        </div>
+    </section>
+
+    <div class="endline"></div>
+
+    <section id="shop">
+        <div id="shop-content">
+            <div id="shop-title"><p>BEST SELLER</p></div>
+            <div id="shop-items">
+                <div id="productContainer"></div>
+                    <!-- show item o day -->
+            </div>
+            <div id="pagination">
+            </div>
+            <a href="shop.html"><button id="shop-button">Xem toàn bộ sản phẩm</button></a>
+        </div>
+    </section>
+
+    <div class="endline"></div>
+
+    <section id="services">
+        <div id="services-content">
+            <div id="services-title"><p>CÁC DỊCH VỤ CỦA CỬA HÀNG</p></div>
+            <div id="services-items">
+                <div class="services-item">
+                    <i class="fa-solid fa-truck"></i>
+                    <p>Giao hàng miễn phí</p>
+                </div>
+                <div class="services-item">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <p>Thanh toán khi nhận hàng</p>
+                </div>
+                <div class="services-item">
+                    <i class="fa-solid fa-undo"></i>
+                    <p>Đổi trả miễn phí</p>
+                </div>
+                <div class="services-item">
+                    <i class="fa-solid fa-headphones"></i>
+                    <p>Hỗ trợ 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <img src="img/poster.jpg" class="poster">
+    <div class="endline"></div>
+
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-top-content">
+                    <div class="footer-top-img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="footer-top-subbox">
+                        <div class="footer-top-subs">
+                            <h2 class="footer-top-subs-title">Đăng ký nhận tin</h2>
+                            <p class="footer-top-subs-text">Nhận thông tin mới nhất từ chúng tôi</p>
+                        </div>
+                        <form class="form-ground">
+                            <input type="email" class="form-ground-input" placeholder="Nhập email của bạn">
+                            <button class="form-ground-btn">
+                                <span>ĐĂNG KÝ</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-area">
+            <div class="container">
+                <div class="widget-row">
+                    <div class="widget-row-col-1">
+                        <h3 class="widget-title">Về chúng tôi</h3>
+                        <div class="widget-row-col-content">
+                            <p>Thể Thao Shop là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
+                        </div>
+                        <div class="widget-social">
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-row-col">
+                        <h3 class="widget-title">Liên kết</h3>
+                        <ul class="widget-contact">
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Về chúng tôi</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Cửa hàng</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Dịch vụ</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Liên hệ</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-row-col">
+                        <h3 class="widget-title">SẢN PHẨM</h3>
+                        <ul class="widget-contact">
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Giày cỏ nhân tạo</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Giày cỏ tự nhiên</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Quần áo</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Phụ kiện</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-row-col-1">
+                        <h3 class="widget-title">Liên hệ</h3>
+                        <div class="contact">
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-location-dot"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-phone"></i>
+                                </div>
+                                <div class="contact-content contact-item-phone">
+                                    <span>0123 456 789</span>
+                                    <br>
+                                    <span>0987 654 321</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="contact-content conatct-item-email">
+                                    <span>abc@domain.com</span><br />
+                                    <span>infoabc@domain.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright-wrap">
+        <div class="container">
+            <div class="copyright-content">
+                <p>Copyright 2024 BY THỂ THAO SHOP - HỆ THỐNG CỬA HÀNG ĐỒ THỂ THAO UY TÍN.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-top">
+        <a href="#"><i class="fa-regular fa-arrow-up"></i></a>
+    </div>
+
+
+    <div id="toast"></div>
+
+    <script src="script.js"></script>
+    <script src="khoitao.js"></script>
+    <script src="thongbao.js"></script>
+</body>
+</html>

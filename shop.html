@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINAL!!!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <section id="navbar">
+        <ul id="nav-links">
+            <div id="nav-logo">LOGO!!</div>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="shop.html">Cửa hàng</a></li>
+            <li><a href="#services">Thông tin</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+            <ul id="nav-links-function">
+                <li id="search"><a><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li id="Sign" name="Sign"><a><i class="fa-solid fa-user"></i></a></li>
+                <li id="Cart" name="Cart"><a><i class="fa-solid fa-bag-shopping"></i></i></a></li>
+            </ul>
+        </ul>
+    </section>
+
+    <div id="overlay" class="overlay"></div>
+
+    <div id="SignForm">
+        <div id="SignForm-content">
+            <div id="SignForm-close"><i class="fa-solid fa-xmark"></i></div>
+            <div id="SignForm-title">ĐĂNG NHẬP</div>
+            <div id="SignForm-inputs">
+                <input type="text" id="txtUsername" placeholder="Tên đăng nhập">
+                <input type="password" id="txtPassword" placeholder="Mật khẩu">
+            </div>
+            <div id="SignForm-submit">
+                <div>Đăng nhập</div>
+            </div>
+            <div id="SignForm-APT">Chưa có tài khoản? <a id="SignForm-register">Đăng ký</a></div>
+        </div>
+    </div>
+
+    <div id="RegisterForm">
+        <div id="RegisterForm-content">
+            <div id="RegisterForm-close"><i class="fa-solid fa-xmark"></i></div>
+            <div id="RegisterForm-title">ĐĂNG KÝ</div>
+            <div id="RegisterForm-inputs">
+                <input type="text" id="txtRUsername" placeholder="Tên đăng nhập">
+                <input type="password" id="txtRPassword" placeholder="Mật khẩu">
+                <input type="password" id="txtRPassword2" placeholder="Nhập lại mật khẩu">
+            </div>
+            <div id="RegisterForm-submit">
+                <div>Đăng ký</div>
+            </div>
+            <div id="RegisterForm-APT">Đã có tài khoản? <a id="RegisterForm-login">Đăng nhập</a></div>
+        </div>
+    </div>
+
+    <div id="CartForm">
+        <div id="CartForm-content"></div>
+            <div id="CartForm-close"><i class="fa-solid fa-xmark"></i></div>
+            <div id="CartForm-title"><div>GIỎ HÀNG</div></div>
+            <div id="CartForm-items">
+                <ul id="CartForm-items-list">
+                    <li><img src="img/SP1.JPG" alt="SP1" id="CartForm-item-image"></li>
+                    <li><img src="img/SP2.JPG" alt="SP2" id="CartForm-item-image"></li>
+                </ul>
+            </div>
+            <div id="CartForm-total">
+                <span>Tổng cộng:</span>
+                <span id="CartForm-total-amount">0₫</span>
+            </div>
+            <div id="CartForm-actions">
+                <button id="CartForm-checkout">Thanh toán</button>
+                <button id="CartForm-view">Xem giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+
+    <h1>SHOP NÈ CU</h1>
+</body>
+    <script src="script.js"></script>
+</html>
