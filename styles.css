@@ -75,6 +75,14 @@ body{
     transition: width 0.4s ease;
 }
 
+#nav-responsive{
+    display: none;
+}
+
+#navbar-responsive{
+    display: none;
+}
+
 #overlay{
     position: fixed;
     top: 70px;
@@ -85,18 +93,6 @@ body{
     z-index: 1000;
     display: none;
 }
-
-#Sign2{
-    display:none;
-}
-
-.Sign2-item{
-    font-size: 0.5rem;
-    font-weight: 600;
-    color: #333;
-    padding-left: 10px;
-}
-
 
 #SignForm{
     position: fixed;
@@ -328,9 +324,9 @@ body{
 #CartForm{
     position: fixed;
     top: 33%;
-    left: 80%;
+    left: 70%;
     height: auto;
-    width: 650px;
+    width: 800px;
     transform: translate(-50%, -50%);
     background: #fff;
     border-radius: 10px;
@@ -591,11 +587,6 @@ body{
     transform: translateY(-10px);
 }
 
-.product:hover ~ .producttitle::after{
-    width: 100%;
-    background: #333;
-}
-
 .product h3{
     font-size: 1rem;
     font-weight: 600;
@@ -695,6 +686,7 @@ body{
     justify-content: space-between;
     width: 100%;
     justify-self: center;
+    flex-wrap: wrap;
     margin: 40px 0;
 }
 
@@ -726,7 +718,7 @@ body{
     border-top: 4px solid #333;
 }
 
-.footer .container {
+.footer-container {
     margin: 0 10%;
     display: block;
 }

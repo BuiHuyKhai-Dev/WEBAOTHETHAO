@@ -11,7 +11,7 @@
     <!-- <link href='./assets/img/favicon.png' rel='icon' type='image/x-icon' /> -->
     <!-- Hinh cho trang web -->
     <link rel="stylesheet" href="./assets/css/toast-message.css">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="indexResponsive.css">
 </head>
 <body>
     <section id="navbar">
@@ -27,6 +27,26 @@
                 <li id="Cart" name="Cart"><a><i class="fa-solid fa-bag-shopping"></i></i></a></li>
             </ul>
         </ul>
+    </section>
+
+    <div id="nav-responsive">
+        <div id="nav-responsive-logo">LOGO!!</div>
+        <div id="nav-responsive-button">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+
+    <section id="navbar-responsive">
+            <ul id="nav-responsive-links-content">
+                <li><div><a href="#hero">Trang chủ</a></div></li>
+                <li><div><a href="shop.html">Cửa hàng</a></div></li>
+                <li><div><a href="#services">Dịch vụ</a></div></li>
+                <li><div><a href="#footer">Liên hệ</a></div></li>
+            </ul>
+            <ul id="nav-responsive-links-function">
+                <li id="Sign-responsive" name="Sign2"><div><a><i class="fa-solid fa-user"></i></a></div></li>
+                <li id="Cart-responsive" name="Cart2"><div><a><i class="fa-solid fa-bag-shopping"></i></i></a></div></li>
+            </ul>
     </section>
 
     <div id="overlay" class="overlay"></div>
@@ -99,7 +119,7 @@
                 </div>
             </div>
             <div id="CartForm-actions">
-                <button id="CartForm-view">Xem giỏ hàng</button>
+                <button id="CartForm-view">Xem giỏ hàng / Thanh toán</button>
             </div>
         </div>
     </div>
@@ -163,7 +183,7 @@
     <div class="endline"></div>
 
     <footer class="footer" id="footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="footer-top">
                 <div class="footer-top-content">
                     <div class="footer-top-img">
@@ -324,7 +344,8 @@
 
 
     <div id="toast"></div>
-
+    
+    <script src="indRes.js"></script>
     <script src="script.js"></script>
     <script src="khoitao.js"></script>
     <script src="thongbao.js"></script>
