@@ -83,7 +83,6 @@
 
 
     #hero{
-        background-position: center;
         opacity: 1;
     }
 
@@ -203,6 +202,13 @@
 
     #afterSign-content div{
         font-size: 1.5rem;
+    }
+
+    #SearchBar{
+        z-index: 4100;
+        top : 100px;
+        padding: 30px 10px;
+        padding-right: 50px;
     }
 }
 

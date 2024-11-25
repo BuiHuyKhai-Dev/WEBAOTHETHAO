@@ -28,6 +28,7 @@ window.addEventListener('scroll', function() {
         CartForm.style.display = 'none';
         afterSign.style.display = 'none';
         afterSignAdmin.style.display = 'none';
+        document.getElementById('SearchBar').style.display = 'none';
     } else {
         // cuộn lên
         navbar.style.transform = 'translateX(0%)'; // hiện navbar
@@ -95,4 +96,15 @@ function hideAfterSign(){
     afterSignAdmin.style.display = 'none';
 }
 
+let SearchRes = document.getElementById('Search-responsive');
+SearchRes.addEventListener('click', function(event){
+    document.getElementById('SearchBar').style.display = 'flex';
+    document.getElementById('txtSearch').value = '';
+    document.getElementById('SearchBar').focus();
+    overlay.style.display = 'block';
+    SignForm.style.display = 'none';
+    RegisterForm.style.display = 'none';
+    CartForm.style.display = 'none';
+    navRes.style.transform = 'translateX(100%)';
+});
 
