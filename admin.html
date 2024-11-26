@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="./assets/font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
     <!-- <link href='./assets/img/favicon.png' rel='icon' type='image/x-icon' /> -->
     <!-- Hinh cho trang web -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="./assets/css/toast-message.css">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="indexResponsive.css">
 </head>
 <body>
     <section id="navbar">
@@ -19,7 +20,7 @@
             <div id="nav-logo">LOGO!!</div>
             <li><a href="index.html#hero">Trang chủ</a></li>
             <li><a href="shop.html">Cửa hàng</a></li>
-            <li><a href="#services">Dịch vụ</a></li>
+            <li><a href="index.html#services">Dịch vụ</a></li>
             <li><a href="#footer">Liên hệ</a></li>
             <ul id="nav-links-function">
                 <li id="search"><a><i class="fa-solid fa-magnifying-glass"></i></a></li>
@@ -29,55 +30,28 @@
         </ul>
     </section>
 
+    <div id="nav-responsive">
+        <div id="nav-responsive-logo">LOGO!!</div>
+        <div id="nav-responsive-button">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+
+    <section id="navbar-responsive">
+            <ul id="nav-responsive-links-content">
+                <li><div id="hero-btn"><a href="#hero">Trang chủ</a></div></li>
+                <li><div><a href="shop.html">Cửa hàng</a></div></li>
+                <li><div id="services-btn"><a href="#services">Dịch vụ</a></div></li>
+                <li><div id="footer-btn"><a href="#footer">Liên hệ</a></div></li>
+            </ul>
+            <ul id="nav-responsive-links-function">
+                <li id="Sign-responsive" name="Sign2"><div><a><i class="fa-solid fa-user"></i></a></div></li>
+                <li id="Cart-responsive" name="Cart2"><div><a><i class="fa-solid fa-bag-shopping"></i></i></a></div></li>
+                <li id="Search-responsive"><div><a><i class="fa-solid fa-magnifying-glass"></i></a></div></li>
+            </ul>
+    </section>
+
     <div id="overlay" class="overlay"></div>
-
-    <!-- <div id="SignForm">
-        <div id="SignForm-content">
-            <div id="SignForm-close"><i class="fa-solid fa-xmark"></i></div>
-            <div id="SignForm-title">ĐĂNG NHẬP</div>
-            <p class="RegisterForm-desc">Đăng nhập thành viên để đặt hàng và sử dụng những ưu đãi</p>
-            <div id="SignForm-inputs">
-                <input type="text" id="txtUsername" placeholder="Tên đăng nhập">
-                <input type="password" id="txtPassword" placeholder="Mật khẩu">
-            </div>
-            <div id="SignForm-submit">
-                <div>Đăng nhập</div>
-            </div>
-            <div id="SignForm-APT">Chưa có tài khoản? <a id="SignForm-register">Đăng ký</a></div>
-        </div>
-    </div>
-
-    <div id="RegisterForm">
-        <div id="RegisterForm-content">
-            <div id="RegisterForm-close"><i class="fa-solid fa-xmark"></i></div>
-            <div id="RegisterForm-title">ĐĂNG KÝ</div>
-            <p class="RegisterForm-desc">Đăng ký thành viên để nhận những ưu đãi và thông báo mới nhất</p>
-            <div id="RegisterForm-inputs">
-                <input type="text" id="txtRName" placeholder="Họ tên">
-                <input type="text" id="txtRUsername" placeholder="Tên đăng nhập">
-                <input type="password" id="txtRPassword" placeholder="Mật khẩu">
-                <input type="password" id="txtRPassword2" placeholder="Nhập lại mật khẩu">
-            </div>
-            <div id="RegisterForm-checkbox">
-                <input class="checkbox" name="checkbox" required="" type="checkbox" id="checkbox-signup">
-                <label for="checkbox-signup" class="form-checkbox">Tôi đồng ý với <a href="#" style="text-decoration: none; color: #333; font-weight: 700;">chính sách trang web</a></label>
-            </div>
-            <div id="RegisterForm-submit">
-                <div>Đăng ký</div>
-            </div>
-            <div id="RegisterForm-APT">Đã có tài khoản? <a id="RegisterForm-login">Đăng nhập</a></div>
-        </div>
-    </div>
-
-    <div id="afterSign">
-        <div id="afterSign-content">
-            <div id="afterSign-title">Xin chào, <span id="afterSign-username"></span></div>
-            <div id="afterSign-infor">Thông tin tài khoản</div>
-            <div id="afterSign-orders">Đơn hàng của tôi</div>
-            <div id="afterSign-logout">Đăng xuất</div>
-            <div id="afterSign-close">Thoát</i></div>
-        </div>
-    </div> -->
 
     <div id="SignForm">
         <div id="SignForm-content">
@@ -117,6 +91,8 @@
         </div>
     </div>
 
+    <div id="account-profile"></div>
+
     <div id="afterSign">
         <div id="afterSign-content">
             <div id="afterSign-title">Xin chào, <span id="afterSign-username"></span></div>
@@ -124,17 +100,6 @@
             <div id="afterSign-orders">Đơn hàng của tôi</div>
             <div id="afterSign-logout">Đăng xuất</div>
             <div id="afterSign-close">Thoát</i></div>
-        </div>
-    </div>
-
-    <div id="afterSignAdmin">
-        <div id="afterSign-content">
-            <div id="afterSign-title">Xin chào, <span id="afterSign-admin-username"></span></div>
-            <div id="afterSign-admin-infor">Thông tin tài khoản</div>
-            <a href="admin.html"><div id="afterSign-admin">Quản lý cửa hàng</div></a>
-            <div id="afterSign-admin-orders">Đơn hàng của tôi</div>
-            <div id="afterSign-admin-logout">Đăng xuất</div>
-            <div id="afterSign-admin-close">Thoát</i></div>
         </div>
     </div>
 
@@ -158,7 +123,7 @@
                 </div>
             </div>
             <div id="CartForm-actions">
-                <button id="CartForm-view">Xem giỏ hàng</button>
+                <button id="CartForm-view">Xem giỏ hàng / Thanh toán</button>
             </div>
         </div>
     </div>
@@ -170,19 +135,23 @@
             </div>
     </div>
 
-
-    <div class="endline"></div>
-
     <section id="shop">
         <div id="shop-content">
-            <div id="shop-title"><p>QUẢN LÍ CỬA HÀNG</p></div>
+            <div id="shop-title"><p>QUẢN LÝ CỬA HÀNG</p></div>
+            <div id="shop-items">
+                <div id="productContainer"></div>
+                    <!-- show item o day -->
+            </div>
+            <div id="pagination">
+            </div>
+            <a href="shop.html"><button id="shop-button">Xem toàn bộ sản phẩm</button></a>
         </div>
     </section>
 
     <div class="endline"></div>
 
     <footer class="footer" id="footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="footer-top">
                 <div class="footer-top-content">
                     <div class="footer-top-img">
@@ -341,11 +310,12 @@
         <a href="#"><i class="fa-regular fa-arrow-up"></i></a>
     </div>
 
-    <div id="toast"></div>
 
+    <div id="toast"></div>
+    
+    <script src="indRes.js"></script>
     <script src="script.js"></script>
     <script src="khoitao.js"></script>
     <script src="thongbao.js"></script>
-    <script src="admin.js"></script>
 </body>
 </html>

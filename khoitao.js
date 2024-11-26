@@ -28,21 +28,23 @@ function createAdmin(){
                 name: 'Bùi Huy Khải',
                 username: 'hkhai',
                 password: '123',
-                role: 'admin',
+                role: 'user',
                 status: 'active'
             }),
         accounts.push({
-                name: 'Admin Khải',
+                name: 'Huy Khải Bùi',
                 username: 'admin',
                 password: 'admin',
                 role: 'admin',
-                status: 'block' 
+                status: 'active'
             })
         
         localStorage.setItem('accounts', JSON.stringify(accounts));
     }
 }
-
+// window.onload = localStorage.removeItem('accounts');
 window.onload = createAdmin();
 window.onload = localStorage.removeItem('products');
 window.onload = createProduct();
+// window.onload = ProfileSubmit();
+// window.onload = setupImageUpload("#img-user1", 'input[type="file"]', "#avatar", ".bxs-user");

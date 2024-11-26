@@ -151,6 +151,8 @@ SignSubmit.addEventListener('click', function(event) {
                     SignReS.removeEventListener('click', showSignForm);
                     Sign.addEventListener('click', showAfterSignAdmin);
                     SignReS.addEventListener('click', showAfterSignAdmin);
+                    //Cap nhat profile
+                    loadProfile();
                     let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
                     let name = accounts.find(account => account.username === username).name;
                     document.getElementById('afterSign-admin-username').textContent = name;
@@ -163,6 +165,8 @@ SignSubmit.addEventListener('click', function(event) {
                     SignReS.removeEventListener('click', showSignForm);
                     Sign.addEventListener('click', showAfterSign);
                     SignReS.addEventListener('click', showAfterSign);
+                    //Cap nhat profile
+                    loadProfile();
                     let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
                     let name = accounts.find(account => account.username === username).name;
                     document.getElementById('afterSign-username').textContent = name;
@@ -228,6 +232,43 @@ function isAccountExist(username) {
     return accounts.some(account => account.username === username);
 }
 
+//---------------KIỂM TRA ĐĂNG NHẬP------------------//
+function checkOnLogin() {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    let username = currentUser ? currentUser.username : '';
+    if (currentUser) {
+                if(getAccountRole(username) == 'admin'){
+                    Sign.removeEventListener('click', showSignForm);
+                    SignReS.removeEventListener('click', showSignForm);
+                    Sign.addEventListener('click', showAfterSignAdmin);
+                    SignReS.addEventListener('click', showAfterSignAdmin);
+                    //Cap nhat profile
+                    loadProfile();
+                    let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
+                    let name = accounts.find(account => account.username === username).name;
+                    document.getElementById('afterSign-admin-username').textContent = name;
+                }
+                else if(getAccountRole(username) == 'user'){
+                    Sign.removeEventListener('click', showSignForm);
+                    SignReS.removeEventListener('click', showSignForm);
+                    Sign.addEventListener('click', showAfterSign);
+                    SignReS.addEventListener('click', showAfterSign);
+                    //Cap nhat profile
+                    loadProfile();
+                    let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
+                    let name = accounts.find(account => account.username === username).name;
+                    document.getElementById('afterSign-username').textContent = name;
+                }
+            }
+    return false;
+    };
+
+
+window.onload = checkOnLogin();
+
+//---------------KIỂM TRA ĐĂNG NHẬP------------------//
+
+
 //Khởi tạo sẽ reset currentUser tức là phải đăng nhập lại sau khi F5
 // localStorage.removeItem('currentUser');
 
@@ -254,9 +295,14 @@ logOut.addEventListener('click', function(){
     SignReS.removeEventListener('click', showAfterSign);
     Sign.addEventListener('click', showSignForm);
     SignReS.addEventListener('click', showSignForm);
+    toast({ title: 'Thành công', message: 'Đã đăng xuất !', type: 'info', duration: 3000 });
+    setTimeout(function() {
+        window.location.href = 'index.html';
+    }, 1000);
 });
 
-document.getElementById('afterSign-admin-logout').addEventListener('click', function(){
+let logOutAdmin = document.getElementById('afterSign-admin-logout')
+logOutAdmin.addEventListener('click', function(){
     localStorage.removeItem('currentUser');
     afterSignAdmin.style.display = 'none';
     overlay.style.display = 'none';
@@ -266,7 +312,183 @@ document.getElementById('afterSign-admin-logout').addEventListener('click', func
     SignReS.removeEventListener('click', showAfterSignAdmin);
     Sign.addEventListener('click', showSignForm);
     SignReS.addEventListener('click', showSignForm);
+    toast({ title: 'Thành công', message: 'Đã đăng xuất !', type: 'info', duration: 3000 });
+    setTimeout(function() {
+        window.location.href = 'index.html';
+    }, 1000);
 });
+
+function loadProfile() {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    let accounts = JSON.parse(localStorage.getItem('accounts'));
+    let name = accounts.find(account => account.username === currentUser.username).name;
+    let userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
+    if(userProfile && userProfile[currentUser.username]){
+        name = userProfile[currentUser.username].name;
+        phone = userProfile[currentUser.username].phone;
+        address = userProfile[currentUser.username].address;
+        email = userProfile[currentUser.username].email;
+        avatar = userProfile[currentUser.username].avatar;
+    }
+    else{
+        phone = '';
+        address = '';
+        email = '';
+        avatar = 'default-avatar.png';
+    }
+    var s = "";
+    s = `<div id="top-profile">
+        <h2 id="title">THÔNG TIN KHÁCH HÀNG</h2>
+        <div>
+            <div class="rotate-icon">+</div>
+        </div>
+        </div>
+        <div id="content">
+        <div id="img-user1">
+            <img src="${avatar}" alt="" id="avatar" />
+            <i class="bx bxs-user"></i>
+        </div>
+        <input type="file" />
+        <form id="form">
+            <div class="col">
+                <label for="txtName">Họ tên :</label>
+                <input type="text" name="txtName" value="${name}">
+                <label for="nPhone">SĐT :</label>
+                <input type="tel" name="nPhone" value="${phone}">
+                <div style="color: red; display: none">
+                    SĐT không đúng định dạng
+                </div>
+            </div>
+            <div class="col">
+                <label for="txtAddress">Địa chỉ:</label>
+                <input type="text" name="txtAddress" value="${address}">
+                <label for="txtEmail">Email :</label>
+                <input type="text" name="txtEmail" value="${email}">
+                <div style="color: red; display: none">
+                    Email không đúng định dạng
+                </div>
+            </div>
+            <div id="btn">
+                <button type="reset" id="xoa">Xóa</button>
+                <button id="luu">Lưu</button>
+            </div>
+            </form>
+        </div>
+    </div>`;
+    document.querySelector("#account-profile").innerHTML = s;
+    CloseProfile();
+    ProfileSubmit();
+    ProfileClear();
+    setupImageUpload("#img-user1", 'input[type="file"]', "#avatar", ".bxs-user");
+}
+
+function CloseProfile() {
+    let x = document.querySelector(".rotate-icon");
+    let y = document.getElementById("account-profile");
+    x.addEventListener("click", function () {
+            y.style.display = "none";
+            overlay.style.display = 'none';
+    });
+}
+
+function OpenProfile() {
+    document.getElementById("account-profile").style.display = "block";
+    overlay.style.display = 'block';
+    afterSignAdmin.style.display = 'none';
+    afterSign.style.display = 'none';
+}
+
+document.getElementById("afterSign-infor").addEventListener("click", OpenProfile);
+document.getElementById("afterSign-admin-infor").addEventListener("click", OpenProfile);
+
+const checkGmail = /^[a-z0-9]+([._]?[a-z0-9]+)*@gmail\.com$/i;
+const checkPhone = /^\d{3}[-\s]?\d{3}[-\s]?\d{4}$/;
+
+function validateProfile() {
+    let name = document.querySelector('input[name="txtName"]').value;
+    let phone = document.querySelector('input[name="nPhone"]');
+    let address = document.querySelector('input[name="txtAddress"]').value;
+    let email = document.querySelector('input[name="txtEmail"]');
+
+    if (name == '' || phone == '' || address == '' || email == '') {
+        toast({ title: 'Thất bại', message: 'Vui lòng điền đầy đủ thông tin !', type: 'warning', duration: 3000 });
+        return false;
+    }
+    if (!checkPhone.test(phone.value)) {
+        phone.nextElementSibling.style.display = "block";
+        return false;
+    }
+    phone.nextElementSibling.style.display = "none";
+
+    if (!checkGmail.test(email.value)) {
+        email.nextElementSibling.style.display = "block";
+        return false;
+    }
+    email.nextElementSibling.style.display = "none";
+
+    saveProfileToLocalStorage();
+    toast({ title: 'Thành công', message: 'Cập nhật thông tin thành công !', type: 'success', duration: 3000 });
+    overlay.style.display = 'none';
+    document.getElementById("account-profile").style.display = "none";
+    return true;
+}
+
+function ProfileSubmit() {
+    let submit = document.getElementById("luu");
+    submit.addEventListener("click", function (e) {
+        if(!validateProfile()){
+            e.preventDefault();
+        }
+        e.preventDefault();
+    });
+}
+
+function ProfileClear() {
+    let clear = document.getElementById("xoa");
+    clear.addEventListener("click", function (e) {
+        document.querySelector('input[name="txtName"]').value = '';
+        document.querySelector('input[name="nPhone"]').value = '';
+        document.querySelector('input[name="txtAddress"]').value = '';
+        document.querySelector('input[name="txtEmail"]').value = '';
+        e.preventDefault();
+        }
+    );
+}
+
+
+function setupImageUpload(par1, par2, par3, par4) {
+    var imgUser = document.querySelector(par1);
+    var inputFile = document.querySelector(par2);
+    var avatar = document.querySelector(par3);
+    var icon = document.querySelector(par4);
+
+    imgUser.addEventListener("click", () => {
+        inputFile.click();
+    });
+
+    inputFile.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const imgURL = URL.createObjectURL(file);
+        avatar.src = imgURL;
+        icon.style.display = "none";
+        }
+    });
+}
+
+function saveProfileToLocalStorage() {
+    let name = document.querySelector('input[name="txtName"]').value;
+    let phone = document.querySelector('input[name="nPhone"]').value;
+    let address = document.querySelector('input[name="txtAddress"]').value;
+    let email = document.querySelector('input[name="txtEmail"]').value;
+    let avatar = document.getElementById('avatar').src;
+    let username = JSON.parse(localStorage.getItem('currentUser')).username;
+
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        let userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
+        userProfile[currentUser.username] = {username, name, phone, address, email, avatar };
+        localStorage.setItem('userProfile', JSON.stringify(userProfile));
+}
 
 // <---------------<DANG NHAP/DANG KY>----------------->
 
@@ -283,6 +505,7 @@ function closeOverlay() {
     afterSignAdmin.style.display = 'none';
     navRes.style.transform = 'translateX(100%)';
     navbar.style.transform = 'translateY(-100%)';
+    document.body.style.overflow = 'visible';
 }
 overlay.addEventListener('click', closeOverlay);
 
@@ -520,5 +743,5 @@ window.onscroll = () => {
     }
 }
 
-window.onload = localStorage.removeItem('currentUser');
+// window.onload = localStorage.removeItem('currentUser');
 
