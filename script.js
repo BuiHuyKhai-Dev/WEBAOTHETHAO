@@ -631,8 +631,8 @@ function displayCart(username) {
             const cartElement = document.createElement('div');
             cartElement.className = 'cart-item';
             cartElement.innerHTML = `
-                <img src="${item.img}" alt="${item.name}">
-                <h3>${item.name}</h3>
+                <img src="${item.image}" alt="${item.title}">
+                <h3>${item.title}</h3>
                 <p>${item.price}</p>
                 <button class="remove-from-cart">Xóa</button>
             `;
